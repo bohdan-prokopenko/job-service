@@ -1,12 +1,32 @@
-﻿using JobService.Domain.Entity;
+﻿using JobService.Domain.Configuration;
+using JobService.Domain.Entity;
 using JobService.Domain.UseCase;
+
+using Microsoft.Extensions.Options;
+
+using Moq;
 
 namespace JobService.Domain.Tests.UseCases;
 
 [TestFixture]
 internal class CalculateTotalUseCaseTests {
+    private const decimal BaseMarginDefault = 0.11M;
+    private const decimal ExtraMarginDefault = 0.05M;
+    private const decimal SalesTaxDefault = 0.07M;
 
-    private readonly ICalculateTotalUseCase useCase = new CalculateTotalUseCase();
+    private ICalculateTotalUseCase useCase;
+
+    [SetUp]
+    public void SetUp() {
+        CalculatorConfig config = new() {
+            BaseMarginDefault = BaseMarginDefault,
+            ExtraMarginDefault = ExtraMarginDefault,
+            SalesTaxDefault = SalesTaxDefault
+        };
+        var optionsMock = new Mock<IOptions<CalculatorConfig>>();
+        optionsMock.Setup(c => c.Value).Returns(config);
+        useCase = new CalculateTotalUseCase(optionsMock.Object);
+    }
 
     [Test]
     public void ExecuteTest1() {
