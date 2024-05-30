@@ -21,9 +21,9 @@ docker run -d -p 8080:80 job-cost-calculator
 ## Deploy to Kubernetes with Helm
 1. Package the Helm chart:
 ```bash
-helm package ./helm/job-cost-calculator
+helm package ./deployment-configuration
 ```
 2. Deploy the chart:
 ```bash
-helm install job-cost-calculator ./job-cost-calculator-0.1.0.tgz
+helm install job-service ./job-service-0.1.0.tgz
 ```
