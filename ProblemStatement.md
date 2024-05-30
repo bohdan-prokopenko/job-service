@@ -21,33 +21,46 @@ Develop a web application (web service) that exposes API to accept jobs in JSON 
 #### Here are examples of input data and output data for your reference:
 
 ##### Job 1:
+```bash
 extra-margin
 envelopes 520.00
 letterhead 1983.37 exempt
+```
 
 ###### should output:
+```bash
 envelopes: $556.40
 letterhead: $1983.37
 total: $2940.30
+```
 
 ------------
 
 
 ##### Job 2:
+```bash
 t-shirts 294.04
+```
 
 ###### output:
+```bash
 t-shirts: $314.62
 total: $346.96
+```
 
 ------------
 
 ##### Job 3:
+```bash
 extra-margin
 frisbees 19385.38 exempt
 yo-yos 1829 exempt
+```
 
 ###### output:
+```bash
 frisbees: $19385.38
 yo-yos: $1829.00
 total: $24608.68
+```
+
