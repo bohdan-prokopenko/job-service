@@ -1,0 +1,13 @@
+﻿apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "job-service.fullname" . }}
+  labels:
+    {{- include "job-service.labels" . | nindent 4 }}
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+    - port: {{ .Values.service.port }}
+      targetPort: 80
+  selector:
+    {{- include "job-service.selectorLabels" . | nindent 4 }}
