@@ -10,27 +10,24 @@ internal class CalculateTotalUseCase : ICalculateTotalUseCase {
     private const decimal SalesTaxDefault = 0.07M;
 
     public JobResult Execute(RawJob job) {
-        IEnumerable<ItemResult> results = job.Items.Select(item => {
-            var totalPrice = item.Price;
-            var tax = item.Exempt ? 0 : SalesTaxDefault;
-            totalPrice += Round(item.Price * tax, 2);
-            var margin = job.ExtraMargin ? BaseMarginDefault + ExtraMarginDefault : BaseMarginDefault;
-            return new ItemResult(
-                Name: item.Name,
-                BasePrice: item.Price,
-                TotalPrice: totalPrice,
-                SalesTax: item.Price * tax,
-                Margin: item.Price * margin);
-        });
-
-        return CalculateJob(results);
+        IEnumerable<ItemResult> results = job.Items.Select(CalculateItemResult);
+        var total = CalculateJobTotalPrice(job);
+        return new JobResult(results, total);
     }
 
-    private JobResult CalculateJob(IEnumerable<ItemResult> items) {
-        var totalPrice = items.Select(i => i.BasePrice).Sum();
-        var totalTax = items.Select(i => i.SalesTax).Sum();
-        var totalMargin = items.Select(i => i.Margin).Sum();
-        var total = Round(totalPrice + totalTax + totalMargin, 2, MidpointRounding.ToZero);
-        return new JobResult(items, total);
+    public ItemResult CalculateItemResult(RawItem item) {
+        var tax = item.Exempt ? 0 : SalesTaxDefault;
+        var price = item.Price;
+        price += Round(item.Price * tax, 2);
+        return new ItemResult(item.Name, price);
+    }
+
+    public decimal CalculateJobTotalPrice(RawJob job) {
+        IEnumerable<RawItem> items = job.Items;
+        var margin = job.ExtraMargin ? BaseMarginDefault + ExtraMarginDefault : BaseMarginDefault;
+        var totalMargin = items.Select(i => i.Price * margin).Sum();
+        var totalTax = items.Select(i => i.Exempt ? 0 : i.Price * SalesTaxDefault).Sum();
+        var totalPrice = items.Select(i => i.Price).Sum();
+        return Round(totalPrice + totalTax + totalMargin, 2, MidpointRounding.ToZero);
     }
 }
