@@ -1,13 +1,13 @@
-﻿namespace JobService.Api.Request;
+﻿namespace JobService.Api.Dto.Request;
 
-public class RequestItem {
+public class RequestItemDto {
     public string Name {
         get; set;
     }
     public decimal Price {
         get; set;
     }
-    public Exempt Exempt {
+    public bool Exempt {
         get; set;
     }
 }

@@ -1,7 +1,11 @@
+using JobService.Domain.Extensions;
+
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddDomain();
+builder.Services.AddControllers();
 
 WebApplication app = builder.Build();
 

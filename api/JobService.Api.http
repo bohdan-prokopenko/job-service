@@ -1,6 +1,55 @@
 @JobService.Api_HostAddress = http://localhost:5057
 
-GET {{JobService.Api_HostAddress}}/weatherforecast/
+POST {{JobService.Api_HostAddress}}/api/jobs
 Accept: application/json
+Content-Type: application/json
+
+{
+  "items": [
+    {
+      "name": "frisbees",
+      "price": 19385.38,
+      "exempt": true
+    }, 
+    {
+      "name": "yo-yos",
+      "price": 1829,
+      "exempt": true
+    }
+  ],
+  "extraMargin": true
+}
+
+POST {{JobService.Api_HostAddress}}/api/jobs
+Accept: application/json
+Content-Type: application/json
+
+{
+  "items": [
+    {
+      "name": "envelopes",
+      "price": 520.00
+    }, 
+    {
+      "name": "letterhead",
+      "price": 1983.37,
+      "exempt": true
+    }
+  ],
+  "extraMargin": true
+}
+
+POST {{JobService.Api_HostAddress}}/api/jobs
+Accept: application/json
+Content-Type: application/json
+
+{
+  "items": [
+    {
+      "name": "t-shirts",
+      "price": 294.04
+    }
+  ]
+}
 
 ###

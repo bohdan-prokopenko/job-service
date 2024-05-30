@@ -5,6 +5,10 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JobService.Api", "api\JobService.Api.csproj", "{603564EC-B874-4999-88A0-F3EBA2EDBD16}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JobService.Domain", "domain\JobService.Domain.csproj", "{3AAE058C-D14C-4719-A5E3-77B52A6941D3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JobService.Domain.Tests", "tests\JobService.Domain.Tests.csproj", "{C7B83B76-5DCE-4D13-B24F-C7BD0C86EF41}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +22,13 @@ Global
 		{603564EC-B874-4999-88A0-F3EBA2EDBD16}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{603564EC-B874-4999-88A0-F3EBA2EDBD16}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{603564EC-B874-4999-88A0-F3EBA2EDBD16}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3AAE058C-D14C-4719-A5E3-77B52A6941D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3AAE058C-D14C-4719-A5E3-77B52A6941D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3AAE058C-D14C-4719-A5E3-77B52A6941D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3AAE058C-D14C-4719-A5E3-77B52A6941D3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C7B83B76-5DCE-4D13-B24F-C7BD0C86EF41}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C7B83B76-5DCE-4D13-B24F-C7BD0C86EF41}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C7B83B76-5DCE-4D13-B24F-C7BD0C86EF41}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C7B83B76-5DCE-4D13-B24F-C7BD0C86EF41}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
