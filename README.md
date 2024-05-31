@@ -10,12 +10,12 @@
 ## Build Docker Image
 1. Navigate to the project directory.
 2. Build the Docker image:
-3. bash
-4. Copy code
-5. docker build -t job-cost-calculator .
-6. Run the Docker container:
 ```bash
-docker run -d -p 8080:80 job-cost-calculator
+docker build -t jobservice-api .
+```
+3. Run the Docker container:
+```bash
+docker run -d -p 8081:8080 jobservice-api
 ```
 ------------
 ## Deploy to Kubernetes with Helm
