@@ -8,7 +8,7 @@
 7. Body: Provide job details in JSON format.
 ------------
 ## Build Docker Image
-1. Navigate to the project directory.
+1. Navigate to the solution directory.
 2. Build the Docker image:
 ```bash
 docker build -t jobservice-api .
