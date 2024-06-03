@@ -28,4 +28,4 @@ helm package ./deployment-configuration
 helm install job-service ./job-service-0.1.0.tgz
 ```
 ------------
-### [Requests](http://https://raw.githubusercontent.com/bohdan-prokopenko/job-service/main/api/JobService.Api.http "Requests")
+### [Requests](https://raw.githubusercontent.com/bohdan-prokopenko/job-service/main/api/JobService.Api.http "Requests")
